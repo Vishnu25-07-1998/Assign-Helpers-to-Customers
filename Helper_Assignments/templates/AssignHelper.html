@@ -1,0 +1,96 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css_files/AssignHelper.css' %}">
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <title>Add Helper</title>
+    
+</head>
+
+<body>
+    <div class="container">
+        <div class="content">
+            <h1 class="label">Assign Helper to Customer</h1>
+        </div>
+
+        <form method="post" action="" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="Customer">Select Customer:</label>
+                <select name="Customer" id="Customer" class="Customer">
+                    <option value="" selected disabled>Select the required one</option>
+                    {% for customer in Customers%}
+                    <option value="{{customer.name}}">{{customer.name}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <div class="selector">
+                    <div class="select-field" id="select-field">
+                        <span class="button-text" id="button-text">Helper Of Required field</span>
+                        <span class="arrow-down"><i class="fa-solid fa-chevron-down"></i></span>
+                    </div>
+                    <ul class="list-items" id="list-items">
+                        <li class="out-item">
+                            <img src="{% static 'images/Appliance.jpg' %}">
+                            <span class="out-text">Appliance repair</span>
+                        </li>
+                        <li class="out-item">
+                            <img src="{% static 'images/Carpentry.jpg' %}">
+                            <span class="out-text">Carpentry</span>
+                        </li>
+                        <li class="out-item">
+                            <img src="{% static 'images/electrician.jpg' %}">
+                            <span class="out-text">Electrician</span>
+                        </li>
+                        <li class="out-item">
+                            <img src="{% static 'images/welding.webp' %}">
+                            <span class="out-text">Welding</span>
+                        </li>
+                        <li class="out-item">
+                            <img src="{% static 'images/hvac.png' %}">
+                            <span class="out-text">HVAC (Heating, Ventilation, and Air Conditioning)</span>
+                        </li>
+                        <li class="out-item">
+                            <img src="{% static 'images/paint.jpg' %}">
+                            <span class="out-text">Painting</span>
+                        </li>
+                        <li class="out-item">
+                            <img src="{% static 'images/plumbing.jpg' %}">
+                            <span class="out-text">Plumbing</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <input type="hidden" name="skill" id="skill" class="skill" value="">
+
+            <div class="form-group">
+                <label for="helper">Assign Helper:</label>
+                <select name="helper" id="helper" class="helper">
+                    <option value="" selected disabled>Select the required one</option>
+                    {% for Helper in Helpers %}
+                  
+                    <option value="{{Helper.name}}" data-skill="{{Helper.skill}}" style="display: none;">{{Helper.name}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="submit">
+                <button type="submit">Submit</button>
+            </div>
+        </form>
+    </div>
+
+
+
+    <script src="{% static 'js_files/AssignHelper.js' %}"></script>
+</body>
+
+</html>

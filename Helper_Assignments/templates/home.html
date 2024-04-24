@@ -1,0 +1,48 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css_files/home.css' %}">
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body>
+
+    <div class="downbar">
+        <!-- Icon and text links -->
+        <a href="#">
+            <i class="fas fa-home"></i>
+            <span>Home</span>
+        </a>
+        <a href="#">
+            <i class="fas fa-list"></i>
+            <span>Categories</span>
+        </a>
+        <a href="#">
+            <i class="fas fa-cog"></i>
+            <span>Settings</span>
+        </a>
+
+        <a href="#">
+            <i class="fas fa-info-circle"></i>
+            <span>About</span>
+        </a>
+    </div>
+    <div class="content-select">
+        <select name="db-menu" id="db-menu">
+            <option value="" selected hidden >Google Your DB Menu</option>
+            <option value="AddCustomer">Add Customer</option>
+            <option value="AddHelper">Add Helper</option>
+            <option value="AssignHelper">Assign Helper to Customer</option>
+            <option value="HelperDetails">View Helpers Details</option>
+            <option value="CustomerDetails">View Customers Details</option>
+        </select>
+    </div>
+    
+    <script src="{% static 'js_files/home.js' %}"></script>
+</body>
+</html>
